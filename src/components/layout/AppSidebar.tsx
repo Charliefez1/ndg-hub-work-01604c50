@@ -1,7 +1,8 @@
 import {
   Home, CalendarCheck, FolderKanban, CheckSquare, Users, BarChart3,
-  Package, FileText, ClipboardList, Globe, Settings, Bot, Briefcase,
+  Package, FileText, ClipboardList, Globe, Settings, Bot, Briefcase, LogOut,
 } from 'lucide-react';
+import { useAuth } from '@/hooks/useAuth';
 import { NavLink } from '@/components/NavLink';
 import { useLocation } from 'react-router-dom';
 import {
