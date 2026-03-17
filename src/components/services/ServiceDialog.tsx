@@ -129,8 +129,8 @@ export function ServiceDialog({ open, onOpenChange, service }: ServiceDialogProp
                     <FormControl><SelectTrigger><SelectValue /></SelectTrigger></FormControl>
                     <SelectContent>
                       <SelectItem value="none">None</SelectItem>
-                      {NEURO_PHASES.filter(Boolean).map((p) => (
-                        <SelectItem key={p!} value={p!}>{p}</SelectItem>
+                      {NEURO_PHASES.map((p) => (
+                        <SelectItem key={p} value={p} className="capitalize">{p}</SelectItem>
                       ))}
                     </SelectContent>
                   </Select>
