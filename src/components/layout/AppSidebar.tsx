@@ -1,7 +1,8 @@
 import {
   Home, CalendarCheck, FolderKanban, CheckSquare, Users, BarChart3,
-  Package, FileText, ClipboardList, Globe, Settings, Bot, Briefcase,
+  Package, FileText, ClipboardList, Globe, Settings, Bot, Briefcase, LogOut,
 } from 'lucide-react';
+import { useAuth } from '@/hooks/useAuth';
 import { NavLink } from '@/components/NavLink';
 import { useLocation } from 'react-router-dom';
 import {
@@ -55,6 +56,7 @@ export function AppSidebar() {
   const { state } = useSidebar();
   const collapsed = state === 'collapsed';
   const location = useLocation();
+  const { profile, signOut } = useAuth();
 
   return (
     <Sidebar collapsible="icon" className="border-r border-sidebar-border">
@@ -102,6 +104,18 @@ export function AppSidebar() {
           </SidebarGroup>
         ))}
       </SidebarContent>
+      <div className="mt-auto border-t border-sidebar-border p-3">
+        <button
+          onClick={signOut}
+          className="flex items-center gap-2 w-full px-3 py-2 rounded-md text-body text-sidebar-foreground hover:bg-sidebar-accent/50 transition-colors"
+        >
+          <LogOut className="h-4 w-4 shrink-0" strokeWidth={1.75} />
+          {!collapsed && <span>Sign Out</span>}
+        </button>
+        {!collapsed && profile?.display_name && (
+          <p className="text-caption text-text-3 px-3 mt-1 truncate">{profile.display_name}</p>
+        )}
+      </div>
     </Sidebar>
   );
 }
