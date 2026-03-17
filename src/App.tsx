@@ -26,6 +26,7 @@ import PublicForm from './pages/PublicForm';
 import Invoices from './pages/Invoices';
 import DailyBrief from './pages/DailyBrief';
 import Insights from './pages/Insights';
+import AIAssistant from './pages/AIAssistant';
 import NotFound from './pages/NotFound';
 
 const queryClient = new QueryClient();
