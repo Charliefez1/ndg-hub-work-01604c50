@@ -10,6 +10,7 @@ import { RouteGuard } from '@/components/auth/RouteGuard';
 import Index from './pages/Index';
 import Login from './pages/Login';
 import Portal from './pages/Portal';
+import Services from './pages/Services';
 import NotFound from './pages/NotFound';
 
 const queryClient = new QueryClient();
