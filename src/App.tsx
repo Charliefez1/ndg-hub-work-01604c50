@@ -32,6 +32,8 @@ import Meetings from './pages/Meetings';
 import Contracts from './pages/Contracts';
 import Partners from './pages/Partners';
 import KnowledgeBase from './pages/KnowledgeBase';
+import Emails from './pages/Emails';
+import CurriculumTemplates from './pages/CurriculumTemplates';
 import NotFound from './pages/NotFound';
 
 const queryClient = new QueryClient();
