@@ -26,6 +26,7 @@ import PublicForm from './pages/PublicForm';
 import Invoices from './pages/Invoices';
 import DailyBrief from './pages/DailyBrief';
 import Insights from './pages/Insights';
+import AIAssistant from './pages/AIAssistant';
 import NotFound from './pages/NotFound';
 
 const queryClient = new QueryClient();
@@ -64,6 +65,7 @@ const App = () => {
               <Route path="/invoices" element={<Guard><Invoices /></Guard>} />
               <Route path="/daily" element={<Guard><DailyBrief /></Guard>} />
               <Route path="/insights" element={<Guard><Insights /></Guard>} />
+              <Route path="/ai" element={<Guard><AIAssistant /></Guard>} />
 
               {/* Client portal */}
               <Route path="/portal" element={<RouteGuard allowedRoles={['client']}><Portal /></RouteGuard>} />
