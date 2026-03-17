@@ -1,7 +1,7 @@
 import {
   Home, CalendarCheck, FolderKanban, CheckSquare, Users, BarChart3,
   Package, FileText, ClipboardList, Globe, Settings, Bot, Briefcase, LogOut,
-  CalendarDays, FileSignature, Handshake, BookOpen,
+  CalendarDays, FileSignature, Handshake, BookOpen, Mail, BookTemplate,
 } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import { NavLink } from '@/components/NavLink';
