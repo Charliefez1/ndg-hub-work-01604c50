@@ -49,6 +49,8 @@ const navGroups = [
     label: 'Admin',
     items: [
       { title: 'Services', url: '/services', icon: Package },
+      { title: 'Partners', url: '/partners', icon: Handshake },
+      { title: 'Knowledge Base', url: '/knowledge', icon: BookOpen },
       { title: 'AI Assistant', url: '/ai', icon: Bot },
       { title: 'Settings', url: '/settings', icon: Settings },
     ],
