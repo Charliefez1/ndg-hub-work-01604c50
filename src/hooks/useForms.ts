@@ -79,17 +79,11 @@ export function useDeleteForm() {
 }
 
 export function useSubmitFormResponse() {
-  const qc = useQueryClient();
   return useMutation({
-    mutationFn: async (input: { formId: string; data: Record<string, unknown> }) => {
-      const { data, error } = await supabase.functions.invoke('process-form-response', {
-        body: input,
-      });
+    mutationFn: async (response: TablesInsert<'form_responses'>) => {
+      const { data, error } = await supabase.from('form_responses').insert(response).select().single();
       if (error) throw error;
       return data;
-    },
-    onSuccess: (_, vars) => {
-      qc.invalidateQueries({ queryKey: ['form_responses', vars.formId] });
     },
   });
 }
