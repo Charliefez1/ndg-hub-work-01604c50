@@ -104,6 +104,18 @@ export function AppSidebar() {
           </SidebarGroup>
         ))}
       </SidebarContent>
+      <div className="mt-auto border-t border-sidebar-border p-3">
+        <button
+          onClick={signOut}
+          className="flex items-center gap-2 w-full px-3 py-2 rounded-md text-body text-sidebar-foreground hover:bg-sidebar-accent/50 transition-colors"
+        >
+          <LogOut className="h-4 w-4 shrink-0" strokeWidth={1.75} />
+          {!collapsed && <span>Sign Out</span>}
+        </button>
+        {!collapsed && profile?.display_name && (
+          <p className="text-caption text-text-3 px-3 mt-1 truncate">{profile.display_name}</p>
+        )}
+      </div>
     </Sidebar>
   );
 }
