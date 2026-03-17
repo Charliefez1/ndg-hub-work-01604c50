@@ -56,7 +56,7 @@ Deno.serve(async (req: Request) => {
       const dayName = days[new Date(d.date).getDay()];
       if (!dayMap[dayName]) dayMap[dayName] = { energy: [], focus: [] };
       if (d.energy_level) dayMap[dayName].energy.push(d.energy_level);
-      if (d.focus_score) dayMap[dayName].focus.push(d.focus_score);
+      if (d.focus_level) dayMap[dayName].focus.push(d.focus_level);
     }
 
     const focusByDay = days.map((day) => {
