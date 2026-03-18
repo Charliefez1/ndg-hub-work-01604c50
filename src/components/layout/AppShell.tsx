@@ -11,23 +11,16 @@ interface AppShellProps {
 export function AppShell({ children }: AppShellProps) {
   return (
     <SidebarProvider>
-      <div className="min-h-screen flex w-full">
+      <div className="min-h-screen flex w-full bg-background">
         <AppSidebar />
         <div className="flex-1 flex flex-col min-w-0">
-          <header className="h-11 flex items-center justify-between border-b border-border bg-surface/80 backdrop-blur-sm px-4 sticky top-0 z-30">
-            <div className="flex items-center gap-2">
-              <SidebarTrigger className="mr-1" />
-              <button
-                onClick={() => document.dispatchEvent(new KeyboardEvent('keydown', { key: 'k', metaKey: true }))}
-                className="hidden md:inline-flex items-center gap-1.5 text-[11px] text-text-3 bg-muted hover:bg-muted/80 px-2 py-1 rounded-md font-mono transition-colors cursor-pointer"
-              >
-                <kbd className="text-[10px]">⌘</kbd>
-                <kbd className="text-[10px]">K</kbd>
-              </button>
-            </div>
+          {/* Minimal top bar — only visible controls, no heavy chrome */}
+          <header className="h-10 flex items-center justify-between px-4 sticky top-0 z-30 bg-background/80 backdrop-blur-sm">
+            <SidebarTrigger className="md:hidden" />
+            <div className="flex-1" />
             <NotificationBell />
           </header>
-          <main className="flex-1 p-lg pb-20 md:pb-lg animate-fade-in-up">
+          <main className="flex-1 px-6 pb-20 md:pb-6 animate-fade-in-up">
             {children}
           </main>
         </div>
