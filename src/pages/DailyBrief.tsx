@@ -130,7 +130,7 @@ export default function DailyBrief() {
 
           {/* Focus tasks + upcoming */}
           <div className="lg:col-span-2 space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-lg">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <Card>
                 <CardHeader><CardTitle className="text-body">Focus Tasks</CardTitle></CardHeader>
                 <CardContent className="space-y-xs">
