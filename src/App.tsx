@@ -2,11 +2,12 @@ import { useEffect } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Toaster as Sonner } from '@/components/ui/sonner';
-import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { initTheme } from '@/lib/theme';
 import { AuthProvider } from '@/hooks/useAuth';
 import { RouteGuard } from '@/components/auth/RouteGuard';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
+import { toast } from 'sonner';
 
 // Pages
 import Home from './pages/Index';
@@ -36,7 +37,20 @@ import Emails from './pages/Emails';
 import CurriculumTemplates from './pages/CurriculumTemplates';
 import NotFound from './pages/NotFound';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * 60 * 1000,
+      retry: 2,
+      refetchOnWindowFocus: false,
+    },
+    mutations: {
+      onError: (error: Error) => {
+        toast.error(error.message || 'Something went wrong');
+      },
+    },
+  },
+});
 
 function Guard({ children }: { children: React.ReactNode }) {
   return <RouteGuard allowedRoles={['admin', 'team']}>{children}</RouteGuard>;
@@ -46,9 +60,9 @@ const App = () => {
   useEffect(() => { initTheme(); }, []);
 
   return (
+    <ErrorBoundary>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Toaster />
         <Sonner />
         <BrowserRouter>
           <AuthProvider>
@@ -90,6 +104,7 @@ const App = () => {
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
+    </ErrorBoundary>
   );
 };
 
