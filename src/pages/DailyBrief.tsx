@@ -91,7 +91,7 @@ export default function DailyBrief() {
           </CardContent></Card>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Energy check-in */}
           <Card className="lg:col-span-1">
             <CardHeader><CardTitle className="text-body flex items-center gap-2"><Battery className="h-4 w-4" /> Daily Check-in</CardTitle></CardHeader>
